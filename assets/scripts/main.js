@@ -1,3 +1,8 @@
+function onStartButtonClick() {
+    document.getElementById('js-game').classList.remove('-hidden');
+    document.getElementById('js-greeting').classList.add('-hidden');
+}
+
 const playBoard = document.querySelector(".game__board");
 const scoreElement = document.querySelector(".score");
 const highScoreElement = document.querySelector(".high-score");
@@ -23,7 +28,7 @@ const changeFoodPosition = () => {
 const handleGameOver = () => {
     //перезагружаем после проигрыша
     clearInterval(setInvalidId);
-    alert("шмэрть! жми ок чтоб переиграть...");
+    alert("шмэрть! жми ок чтоб вернуться на стартовый экран...");
     location.reload();
 }
 

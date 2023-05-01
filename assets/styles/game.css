@@ -5,6 +5,10 @@
     justify-content: center;
 }
 
+.game.-hidden {
+    display: none;
+}
+
 .wrapper {
     height: 70vmin;
     width: 65vmin;
@@ -31,11 +35,15 @@
 }
 
 .game__board .food {
-    background: #ff003d;
+    background: linear-gradient(-45deg, #ff00ff, #ff0000);
+    background-size: 100% 100%;
+	animation: gradient 10s ease infinite;
 }
 
 .game__board .head {
-    background: #00ffff;
+    background: linear-gradient(-45deg, #00ffff, #ff00ff);
+    background-size: 100% 100%;
+	animation: gradient 10s ease infinite;
 }
 
 .controls {
@@ -55,4 +63,30 @@
 
 .arrows.-last {
     border: none;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .wrapper {
+        height: 120vmin;
+        width: 90vmin;
+    }
+
+    .arrows {
+        height: 60px;
+        padding: 5%;
+    }
 }
