@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>playground</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/base.css">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/greeting.css">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/game.css">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/variabless.css">
+        <meta name="viewport" content="width=device-width, initial-scale-1">
+        <script type="text/javascript" src="./assets/scripts/main.js" defer></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="greeting" id="js-greeting">
+                    <div class="container -greeting">
+                        <h1 class="greeting__title">Майамская змея потрошитель яблок или что это</h1>
+                        <div class="greeting__about">
+                            <button class="greeting__button" onclick="onStartButtonClick()">начать игру</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="wrapper">
+                        <div class="game__details">
+                            <span class="score">Score: 0</span>
+                            <span class="high-score">High Score: 0</span>
+                        </div>
+                        <div class="game__board"></div>
+                        <div class="controls">
+                            <i data-key="ArrowLeft" class="arrows">←</i>
+                            <i data-key="ArrowUp" class="arrows">↑</i>
+                            <i data-key="ArrowRight" class="arrows">→</i>
+                            <i data-key="ArrowDown" class="arrows -last">↓</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </body>
+</html>

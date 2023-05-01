@@ -1,0 +1,29 @@
+.greeting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    display: none;
+}
+
+.greeting__title {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.greeting__about {
+    display: flex;
+    justify-content: center;
+}
+
+.greeting__button {
+    font-size: 25px;
+    height: 60px;
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    color: var(--neon_pink);
+    background-color: white;
+    margin: 0 auto;
+}
