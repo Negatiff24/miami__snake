@@ -5,6 +5,8 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="./assets/styles/base.css">
         <link rel="stylesheet" type="text/css" href="./assets/styles/greeting.css">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/difficulty.css">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/skin.css">
         <link rel="stylesheet" type="text/css" href="./assets/styles/game.css">
         <link rel="stylesheet" type="text/css" href="./assets/styles/variabless.css">
         <meta name="viewport" content="width=device-width, initial-scale-1">
@@ -18,6 +20,106 @@
                         <h1 class="greeting__title">Майамская змея потрошитель яблок или что это блинб</h1>
                         <div class="greeting__about">
                             <button class="greeting__button" onclick="onStartButtonClick()">начать игру</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="difficulty -hidden" id="js-difficulty">
+                    <div class="difficulty__table">
+                        <h2 class="difficulty__title">Выбирите сложность</h2>
+                        <div class="difficulty__pick">
+                            <div class="difficulty__var">
+                                <h4 class="difficulty__name">Лёгкая</h4>
+                                <h5 class="difficulty__about">Тише едешь - дальше будешь</h5>
+                                <div class="difficulty__exemple">
+                                    <div class="difficulty__cube -hidden"></div>
+                                    <div class="difficulty__cube -hidden"></div>
+                                    <div class="difficulty__cube"></div>
+                                    <div class="difficulty__cube -hidden"></div>
+                                    <div class="difficulty__cube -hidden"></div>
+                                </div>
+                                <div class="difficulty__kost">
+                                    <button class="difficulty__button" id="difficulty-easy selected" onclick="goEasyButtonClick()">Выбрать сложность</button>
+                                </div>                                
+                            </div>
+                            <div class="difficulty__var">
+                                <h4 class="difficulty__name">Средняя</h4>
+                                <h5 class="difficulty__about">Я устал придумывать описания</h5>
+                                <div class="difficulty__exemple">
+                                    <div class="difficulty__cube -hidden"></div>
+                                    <div class="difficulty__cube"></div>
+                                    <div class="difficulty__cube"></div>
+                                    <div class="difficulty__cube"></div>
+                                    <div class="difficulty__cube -hidden"></div>
+                                </div>
+                                <div class="difficulty__kost">
+                                    <button class="difficulty__button" id="difficulty-medium" onclick="goMediumButtonClick()">Выбрать сложность</button>
+                                </div>                               
+                            </div>
+                            <div class="difficulty__var">
+                                <h4 class="difficulty__name">Сложная</h4>
+                                <h5 class="difficulty__about">Снейк хэйз - безумная скорость</h5>
+                                <div class="difficulty__exemple">
+                                    <div class="difficulty__cube"></div>
+                                    <div class="difficulty__cube"></div>
+                                    <div class="difficulty__cube"></div>
+                                    <div class="difficulty__cube"></div>
+                                    <div class="difficulty__cube"></div>
+                                </div>
+                                <div class="difficulty__kost">
+                                    <button class="difficulty__button" id="difficulty-hard" onclick="goHardButtonClick()">Выбрать сложность</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skin -hidden" id="js-skin">
+                    <div class="skin__table">
+                        <h2 class="skin__title">Выбирите скин змеи</h2>
+                        <div class="skin__pick">
+                            <div class="skin__var">
+                                <h4 class="skin__name">Неоновая</h4>
+                                <h5 class="skin__about">Самая яркая змея на районе</h5>
+                                <div class="skin__exemple">
+                                    <div class="skin__cube -neon"></div>
+                                    <div class="skin__cube -neon"></div>
+                                    <div class="skin__cube -neon"></div>
+                                    <div class="skin__cube -neon"></div>
+                                    <div class="skin__cube -neon"></div>
+                                </div>
+                                <div class="skin__kost">
+                                    <button class="skin__button" id="skin-neon selected" onclick="goNeonButtonClick()">Выбрать скин</button>
+                                </div>                                
+                            </div>
+                            <div class="skin__var">
+                                <h4 class="skin__name">Классическая</h4>
+                                <h5 class="skin__about">Как на дедушкеном компе</h5>
+                                <div class="skin__exemple">
+                                    <div class="skin__cube -green"></div>
+                                    <div class="skin__cube -green"></div>
+                                    <div class="skin__cube -green"></div>
+                                    <div class="skin__cube -green"></div>
+                                    <div class="skin__cube -green"></div>
+                                </div>
+                                <div class="skin__kost">
+                                    <button class="skin__button" id="skin-green" onclick="goGreenButtonClick()">Выбрать скин</button>
+                                </div>                               
+                            </div>
+                            <div class="skin__var">
+                                <h4 class="skin__name">Чёрная</h4>
+                                <h5 class="skin__about">Всегда стильно</h5>
+                                <div class="skin__exemple">
+                                    <div class="skin__cube -black"></div>
+                                    <div class="skin__cube -black"></div>
+                                    <div class="skin__cube -black"></div>
+                                    <div class="skin__cube -black"></div>
+                                    <div class="skin__cube -black"></div>
+                                </div>
+                                <div class="skin__kost">
+                                    <button class="skin__button" id="skin-black" onclick="goBlackButtonClick()">Выбрать скин</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,67 @@
+let skinPicker = 1;
+let difficultyPicker = 1;
+
 function onStartButtonClick() {
-    document.getElementById('js-game').classList.remove('-hidden');
+    document.getElementById('js-difficulty').classList.remove('-hidden');
     document.getElementById('js-greeting').classList.add('-hidden');
 }
+
+function goMediumButtonClick() {
+    difficultyPicker = 1;
+    clearInterval(setInvalidId);
+    setInvalidId = setInterval(initGame, 125);
+    document.getElementById('js-skin').classList.remove('-hidden');
+    document.getElementById('js-difficulty').classList.add('-hidden');
+}
+
+function goEasyButtonClick() {
+    difficultyPicker = 2;
+    clearInterval(setInvalidId);
+    setInvalidId = setInterval(initGame, 210);
+    document.getElementById('js-skin').classList.remove('-hidden');
+    document.getElementById('js-difficulty').classList.add('-hidden');
+}
+
+function goHardButtonClick() {
+    difficultyPicker = 3;
+    clearInterval(setInvalidId);
+    setInvalidId = setInterval(initGame, 62.5);
+    document.getElementById('js-skin').classList.remove('-hidden');
+    document.getElementById('js-difficulty').classList.add('-hidden');
+}
+
+function goNeonButtonClick() {
+    skinPicker = 1;
+    document.getElementById('js-game').classList.remove('-hidden');
+    document.getElementById('js-skin').classList.add('-hidden');
+}
+
+function goGreenButtonClick() {
+    const headElem = document.getElementById('js-head');
+    if (headElem) { 
+        headElem.classList.remove('-3');
+        headElem.classList.add('-2');
+        skinPicker = 2;
+    } else {
+        console.log("Element with ID 'js-head' not found in DOM");
+    }
+    document.getElementById('js-game').classList.remove('-hidden');
+    document.getElementById('js-skin').classList.add('-hidden');
+}
+
+function goBlackButtonClick() {
+    const headElem = document.getElementById('js-head');
+    if (headElem) { 
+        headElem.classList.remove('-2');
+        headElem.classList.add('-3');
+        skinPicker = 3;
+    } else {
+        console.log("Element with ID 'js-head' not found in DOM");
+    }
+    document.getElementById('js-game').classList.remove('-hidden');
+    document.getElementById('js-skin').classList.add('-hidden');
+}
+
 
 const playBoard = document.querySelector(".game__board");
 const scoreElement = document.querySelector(".score");
@@ -16,7 +76,6 @@ let velocityX = 0, velocityY = 0;
 let setInvalidId;
 let score = 0;
 
-//берём макс рез из хранилища
 let highScore = localStorage.getItem("high-score") || 0;
 highScoreElement.innerText = `Максимальный счёт: ${highScore}`;
 
@@ -26,14 +85,12 @@ const changeFoodPosition = () => {
 }
 
 const handleGameOver = () => {
-    //перезагружаем после проигрыша
     clearInterval(setInvalidId);
     alert("шмэрть! жми ок чтоб вернуться на стартовый экран...");
     location.reload();
 }
 
 const changeDirection = (e) => {
-    //дижение
     if(e.key === "ArrowUp" && velocityY != 1) {
         velocityX = 0;
         velocityY = -1;
@@ -50,7 +107,6 @@ const changeDirection = (e) => {
 }
 
 controls.forEach(key => {
-    //присваиваем движение кнопкам
     key.addEventListener("click", () => changeDirection({ key: key.dataset.key }));
 })
 
@@ -58,11 +114,10 @@ const initGame = () => {
     if(gameOver) return handleGameOver();
     let htmlMarkup = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;
 
-    //проверка косания змеи еды
     if(snakeX === foodX && snakeY === foodY) {
         changeFoodPosition();
-        snakeBody.push([foodX, foodY]); //двигаем позицию еды в тело змеи
-        score++; //увел счёта на 1
+        snakeBody.push([foodX, foodY]);
+        score++;
 
         highScore = score >= highScore ? score : highScore;
         localStorage.setItem("high-score", highScore);
@@ -71,32 +126,43 @@ const initGame = () => {
     }
 
     for (let i = snakeBody.length - 1; i > 0; i--) {
-        //двигаем вперёд значения елемов в теле змеи
         snakeBody[i] = snakeBody[i - 1];
     }
 
-    snakeBody[0] = [snakeX, snakeY]; //ставим первый элем в текущею позицию
+    snakeBody[0] = [snakeX, snakeY];
 
-    //чекаем не за стеной ли голова змеи, еси да то шмэрть
     if(snakeX <= 0 || snakeX > 30 || snakeY <= 0 || snakeY > 30) {
         gameOver = true;
     }
 
-    //обновление позиции головы
     snakeX += velocityX;
     snakeY += velocityY;
 
     for (let i = 0; i < snakeBody.length; i++) {
-        //добавляем див за каждую часть тела змеи
-        htmlMarkup += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
-        //смерть если бьётся о себя
-        if(i != 0 && snakeBody[0][1] ===snakeBody[i][1] && snakeBody[0][0] === snakeBody[i][0]) {
+        if (i === 0) {
+            htmlMarkup += `<div class="head-${skinPicker}" id="js-head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
+        } else if (skinPicker === 2) {
+            htmlMarkup += `<div class="body-${skinPicker}" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
+        } else if (skinPicker === 3) {
+            htmlMarkup += `<div class="body-${skinPicker}" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
+        } else {
+            htmlMarkup += `<div class="body-${skinPicker}" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
+        }
+        
+        if (i != 0 && snakeBody[0][1] === snakeBody[i][1] && snakeBody[0][0] === snakeBody[i][0]) {
             gameOver = true;
         }
     }
+        
     playBoard.innerHTML = htmlMarkup;
 }
-
+        
 changeFoodPosition();
-setInvalidId = setInterval(initGame, 125);
+if (difficultyPicker === 1) {
+    setInvalidId = setInterval(initGame, 125);
+} else if (difficultyPicker === 2) {
+    setInvalidId = setInterval(initGame, 210);
+} else if (difficultyPicker === 3) {
+    setInvalidId = setInterval(initGame, 62.5);
+}
 document.addEventListener("keydown", changeDirection);

@@ -1,0 +1,91 @@
+.skin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.skin.-hidden {
+    display: none;
+}
+
+.skin__table {
+    height: 29vmin;
+    width: 80vmin;
+}
+
+.skin__title {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.skin__pick {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.skin__var {
+    width: 32%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.skin__name {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--neon_pink);
+}
+
+.skin__about {
+    font-size: 17px;
+    text-align: center;
+    color: var(--neon_pink);
+}
+
+.skin__exemple {
+    display: flex;
+    padding: 0 5px;
+}
+
+.skin__cube {
+    width: 20%;
+    height: 45px;
+    background-color: black;
+}
+
+.skin__cube.-neon {
+    background: linear-gradient(-45deg, #00ffff, #ff00ff);
+    background-size: 100% 100%;
+}
+
+.skin__cube.-green {
+    background: linear-gradient(-45deg, #ff8800, #00ff00);
+    background-size: 100% 100%;
+}
+
+.skin__cube.-black {
+    background: linear-gradient(-45deg, #7c00ad, #000000);
+    background-size: 100% 100%;
+}
+
+.skin__kost {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.skin__button {
+    font-size: 25px;
+    height: 60px;
+    width: 200px;
+    border: 1px solid var(--neon_pink);
+    border-radius: 10px;
+    color: var(--neon_pink);
+    background-color: white;
+}

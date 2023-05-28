@@ -38,12 +38,108 @@
     background: linear-gradient(-45deg, #ff00ff, #ff0000);
     background-size: 100% 100%;
 	animation: gradient 10s ease infinite;
+    border-radius: 50%;
 }
 
-.game__board .head {
+.game__board .head-1{
     background: linear-gradient(-45deg, #00ffff, #ff00ff);
     background-size: 100% 100%;
 	animation: gradient 10s ease infinite;
+    position: relative;
+}
+
+.head-1::before {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    top: 3%;
+    left: 3%;
+    border: 0.5px solid white;
+    border-radius: 50%;
+}
+
+.head-1::after {
+    content: "";
+    position: absolute;
+    height: 75%;
+    width: 15%;
+    top: 11%;
+    left: 42%;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.game__board .head-2{
+    background: linear-gradient(-45deg, #ff8800, #00ff00);
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.head-2::before {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    top: 3%;
+    left: 3%;
+    border: 0.5px solid white;
+    border-radius: 50%;
+}
+
+.head-2::after {
+    content: "";
+    position: absolute;
+    height: 75%;
+    width: 15%;
+    top: 11%;
+    left: 42%;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.game__board .head-3{
+    background: linear-gradient(-45deg, #7c00ad, #000000);
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.head-3::before {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    top: 3%;
+    left: 3%;
+    border: 0.5px solid white;
+    border-radius: 50%;
+}
+
+.head-3::after {
+    content: "";
+    position: absolute;
+    height: 75%;
+    width: 15%;
+    top: 11%;
+    left: 42%;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.game__board .body-1{
+    background: linear-gradient(-45deg, #00ffff, #ff00ff);
+    background-size: 100% 100%;
+	animation: gradient 10s ease infinite;
+}
+
+.game__board .body-2{
+    background: linear-gradient(-45deg, #ff8800, #00ff00);
+    background-size: 100% 100%;
+}
+
+.game__board .body-3{
+    background: linear-gradient(-45deg, #7c00ad, #000000);
+    background-size: 100% 100%;
 }
 
 .controls {
