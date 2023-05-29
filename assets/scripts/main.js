@@ -1,11 +1,14 @@
+//флаги для выборов сложности и скина
 let skinPicker = 1;
 let difficultyPicker = 1;
 
+//работы кнопок и переключения экранов
 function onStartButtonClick() {
     document.getElementById('js-difficulty').classList.remove('-hidden');
     document.getElementById('js-greeting').classList.add('-hidden');
 }
 
+//сложности
 function goMediumButtonClick() {
     difficultyPicker = 1;
     clearInterval(setInvalidId);
@@ -30,6 +33,7 @@ function goHardButtonClick() {
     document.getElementById('js-difficulty').classList.add('-hidden');
 }
 
+//скины
 function goNeonButtonClick() {
     skinPicker = 1;
     document.getElementById('js-game').classList.remove('-hidden');
@@ -76,9 +80,11 @@ let velocityX = 0, velocityY = 0;
 let setInvalidId;
 let score = 0;
 
+//счётчик
 let highScore = localStorage.getItem("high-score") || 0;
 highScoreElement.innerText = `Максимальный счёт: ${highScore}`;
 
+//спавн еды
 const changeFoodPosition = () => {
     foodX = Math.floor(Math.random() * 30) + 1;
     foodY = Math.floor(Math.random() * 30) + 1;
@@ -90,6 +96,7 @@ const handleGameOver = () => {
     location.reload();
 }
 
+//движение змейки
 const changeDirection = (e) => {
     if(e.key === "ArrowUp" && velocityY != 1) {
         velocityX = 0;
@@ -110,10 +117,12 @@ controls.forEach(key => {
     key.addEventListener("click", () => changeDirection({ key: key.dataset.key }));
 })
 
+//старт игры
 const initGame = () => {
     if(gameOver) return handleGameOver();
-    let htmlMarkup = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;
+    let htmlMarkup = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;//спавн еды
 
+    //змея есть яблоко
     if(snakeX === foodX && snakeY === foodY) {
         changeFoodPosition();
         snakeBody.push([foodX, foodY]);
@@ -132,12 +141,13 @@ const initGame = () => {
     snakeBody[0] = [snakeX, snakeY];
 
     if(snakeX <= 0 || snakeX > 30 || snakeY <= 0 || snakeY > 30) {
-        gameOver = true;
+        gameOver = true;//смерть если уход за границы
     }
 
     snakeX += velocityX;
     snakeY += velocityY;
 
+    //спавн головы и тела с учётом флага скина
     for (let i = 0; i < snakeBody.length; i++) {
         if (i === 0) {
             htmlMarkup += `<div class="head-${skinPicker}" id="js-head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
@@ -158,6 +168,7 @@ const initGame = () => {
 }
         
 changeFoodPosition();
+//меняем скорость/сложность
 if (difficultyPicker === 1) {
     setInvalidId = setInterval(initGame, 125);
 } else if (difficultyPicker === 2) {

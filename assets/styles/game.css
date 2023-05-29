@@ -181,6 +181,33 @@
         width: 90vmin;
     }
 
+    .head-1::before {
+        top: 0;
+        left: 0;
+    }
+
+    .head-1::after {
+        left: 41%;
+    }
+
+    .head-2::before {
+        top: 0;
+        left: 0;
+    }
+
+    .head-2::after {
+        left: 41%;
+    }
+
+    .head-3::before {
+        top: 0;
+        left: 0;
+    }
+
+    .head-3::after {
+        left: 41%;
+    }
+
     .arrows {
         height: 60px;
         padding: 5%;

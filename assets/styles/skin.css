@@ -50,6 +50,7 @@
 
 .skin__exemple {
     display: flex;
+    justify-content: center;
     padding: 0 5px;
 }
 
@@ -88,4 +89,38 @@
     border-radius: 10px;
     color: var(--neon_pink);
     background-color: white;
+}
+
+@media screen and (max-width: 1050px) {
+    .skin__table {
+        height: 777px;
+        width: 90vmin;
+    }
+
+    .skin__pick {
+        flex-direction: column;
+        height: 80%;
+    }
+
+    .skin__var {
+        width: 100%;
+        height: 195px;
+    }
+
+    .skin__name {
+        margin-top: 5px;
+    }
+
+    .skin__about {
+        margin: 5px;
+    }
+
+    .skin__exemple {
+        margin-top: 10px;
+    }
+
+    .skin__cube {
+        width: 28px;
+        height: 28px;
+    }
 }
